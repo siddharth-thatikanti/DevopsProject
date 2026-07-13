@@ -1,0 +1,61 @@
+services:
+
+  frontend:
+    image: fastapi-react-full-stack-frontend:latest
+
+    ports:
+      - "5173:5173"
+
+    volumes:
+      # Mount local React/Vite source code
+      - ./frontend:/app
+
+      # Preserve container node_modules
+      - frontend_node_modules:/app/node_modules
+
+    command:
+      - npm
+      - run
+      - dev
+      - --
+      - --host
+      - 0.0.0.0
+      - --port
+      - "5173"
+
+
+  backend:
+    image: fastapi-react-full-stack-backend:latest
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      # Mount local FastAPI source code
+      - ./backend:/app
+
+
+      - backend_venv:/app/.venv
+
+    command:
+      - fastapi
+      - dev
+      - main.py
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+
+
+  database:
+    image: postgres:17-alpine
+
+    ports:
+      - "5432:5432"
+
+
+volumes:
+
+  frontend_node_modules:
+
+  backend_venv:

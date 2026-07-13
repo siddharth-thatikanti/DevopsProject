@@ -1,0 +1,24 @@
+services:
+
+  frontend:
+    image: devfoundry/frontend:${IMAGE_TAG}
+
+    restart: unless-stopped
+
+
+  backend:
+    image: devfoundry/backend:${IMAGE_TAG}
+
+    restart: unless-stopped
+
+    deploy:
+      resources:
+
+        limits:
+          cpus: "1.0"
+
+          memory: 1G
+
+
+  database:
+    restart: unless-stopped
