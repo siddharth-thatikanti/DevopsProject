@@ -237,10 +237,10 @@ Once you understand this codebase, here's where to go next:
 | **Testing**          | pytest (backend), Vitest (frontend)                 | [FastAPI Testing](https://fastapi.tiangolo.com/tutorial/testing/)             |
 | **Deployment**       | Docker, Railway, Vercel                             | [FastAPI Deployment](https://fastapi.tiangolo.com/deployment/)                |
 
-## License
-
-MIT License — do whatever you want with this code. Learn from it, modify it, use it in your projects. No attribution required (but appreciated!).
-
----
-
-**Happy coding!** If this helped you, consider starring the repo ⭐
+## How to Use it
+clone the repository 
+Run the both front and backend files
+after cloning the repository run tbe application with 
+' Docker compose config ' # to show the dcoker confirguations 
+' Docker Compose up -d --build ' # to run the containers 
+Make sure docker is installed in the cloned PC.
